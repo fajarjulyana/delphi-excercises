@@ -1,0 +1,32 @@
+inherited LANChatFrm_LgXhdpiPh: TLANChatFrm_LgXhdpiPh
+  ClientHeight = 695
+  ClientWidth = 450
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    Size.Width = 450.000000000000000000
+    Size.Height = 626.000000000000000000
+    inherited Label1: TLabel
+      Position.X = 129.000000000000000000
+      Position.Y = 10.000000000000000000
+    end
+    inherited ListBox1: TListBox
+      Position.Y = 41.000000000000000000
+      Size.Width = 377.000000000000000000
+      Size.Height = 569.000000000000000000
+      Viewport.Width = 377.000000000000000000
+      Viewport.Height = 569.000000000000000000
+    end
+  end
+  inherited Panel2: TPanel
+    Position.Y = 626.000000000000000000
+    Size.Width = 450.000000000000000000
+    inherited Edit1: TEdit
+      Position.Y = 5.000000000000000000
+      Size.Width = 297.000000000000000000
+      Size.Height = 32.000000000000000000
+    end
+    inherited Button1: TButton
+      Position.X = 313.000000000000000000
+    end
+  end
+end

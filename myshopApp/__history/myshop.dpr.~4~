@@ -1,0 +1,16 @@
+program myshop;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  loginsrc in 'src\loginsrc.pas' {LoginForm},
+  mainsrc in 'src\mainsrc.pas' {FrmMain};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TLoginForm, LoginForm);
+  Application.CreateForm(TFrmMain, FrmMain);
+  Application.Run;
+end.

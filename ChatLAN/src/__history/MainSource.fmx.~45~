@@ -1,0 +1,104 @@
+object LANChatFrm: TLANChatFrm
+  Left = 980
+  Top = 300
+  BorderStyle = Single
+  Caption = 'LAN Chat'
+  ClientHeight = 451
+  ClientWidth = 278
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  Left = 980
+  Top = 300
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Client
+    Size.Width = 278.000000000000000000
+    Size.Height = 382.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Label1: TLabel
+      Position.X = 96.000000000000000000
+      Position.Y = 24.000000000000000000
+      Text = 'LAN Chat'
+      TabOrder = 1
+    end
+    object ListBox1: TListBox
+      Position.X = 8.000000000000000000
+      Position.Y = 49.000000000000000000
+      Size.Width = 257.000000000000000000
+      Size.Height = 353.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      Viewport.Width = 253.000000000000000000
+      Viewport.Height = 349.000000000000000000
+    end
+    object Edit2: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 3
+      Text = '192.168.43.1'
+      Position.X = 152.000000000000000000
+      Position.Y = 19.000000000000000000
+    end
+  end
+  object Panel2: TPanel
+    Align = Bottom
+    Position.Y = 382.000000000000000000
+    Size.Width = 278.000000000000000000
+    Size.Height = 69.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object Edit1: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 0
+      Position.X = 8.000000000000000000
+      Position.Y = 23.000000000000000000
+      Size.Width = 185.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Button1: TButton
+      Position.X = 201.000000000000000000
+      Position.Y = 20.000000000000000000
+      Size.Width = 64.000000000000000000
+      Size.Height = 38.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Kirim'
+      OnClick = Button1Click
+    end
+  end
+  object IdTCPClient1: TIdTCPClient
+    ConnectTimeout = 0
+    Host = '192.168.43.1'
+    Port = 12345
+    ReadTimeout = -1
+    ReuseSocket = rsTrue
+    Left = 56
+    Top = 8
+  end
+  object IdTCPServer1: TIdTCPServer
+    Active = True
+    Bindings = <
+      item
+        IP = '0.0.0.0'
+        Port = 12345
+      end>
+    DefaultPort = 12345
+    ReuseSocket = rsTrue
+    OnExecute = IdTCPServer1Execute
+    Left = 16
+    Top = 8
+  end
+  object IdIPWatch1: TIdIPWatch
+    Active = False
+    HistoryFilename = 'iphist.dat'
+    Left = 104
+    Top = 8
+  end
+end

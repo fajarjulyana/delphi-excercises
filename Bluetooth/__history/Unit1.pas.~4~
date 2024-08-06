@@ -1,0 +1,72 @@
+unit Unit1;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
+  FMX.ListBox, FMX.Controls.Presentation, FMX.StdCtrls, System.Bluetooth,
+  System.Bluetooth.Components;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    ListBox1: TListBox;
+    Bluetooth1: TBluetooth;
+    Button2: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+{$R *.LgXhdpiPh.fmx ANDROID}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  BluetoothManager: TBluetoothManager;
+  DiscoveredDevices: TBluetoothDeviceList;
+  I: Integer;
+begin
+  BluetoothManager := TBluetoothManager.Current;
+  if BluetoothManager.ConnectionState = TBluetoothConnectionState.Connected then
+  begin
+    ShowMessage('Bluetooth already connected');
+    Exit;
+  end;
+
+  BluetoothManager.StartDiscovery(10000); // Scanning for 10 seconds
+  DiscoveredDevices := BluetoothManager.LastDiscoveredDevices;
+  ListBox1.Items.Clear;
+  for I := 0 to DiscoveredDevices.Count - 1 do
+  begin
+    ListBox1.Items.Add(DiscoveredDevices[I].DeviceName);
+  end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  BluetoothManager: TBluetoothManager;
+  Device: TBluetoothDevice;
+begin
+  if ListBox1.ItemIndex > -1 then
+  begin
+    BluetoothManager := TBluetoothManager.Current;
+    Device := BluetoothManager.LastDiscoveredDevices[ListBox1.ItemIndex];
+    if Device.CreateClientSocket.Connect then
+      ShowMessage('Connection successful')
+    else
+      ShowMessage('Connection failed');
+  end
+  else
+    ShowMessage('Select a device first');
+end;
+end.

@@ -1,0 +1,19 @@
+inherited LoginForm_LgXhdpiPh: TLoginForm_LgXhdpiPh
+  BorderStyle = None
+  Caption = 'My Shop'
+  ClientHeight = 720
+  ClientWidth = 450
+  DesignerMasterStyle = 3
+  inherited Layout1: TLayout
+    Size.Width = 450.000000000000000000
+    Size.Height = 720.000000000000000000
+    inherited Layout2: TLayout
+      Position.Y = 670.000000000000000000
+      Size.Width = 450.000000000000000000
+    end
+    inherited Rectangle1: TRectangle
+      Size.Width = 450.000000000000000000
+      Size.Height = 670.000000000000000000
+    end
+  end
+end

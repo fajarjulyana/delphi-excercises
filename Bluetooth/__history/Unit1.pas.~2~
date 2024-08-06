@@ -1,0 +1,61 @@
+unit Unit1;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
+  FMX.ListBox, FMX.Controls.Presentation, FMX.StdCtrls, System.Bluetooth,
+  System.Bluetooth.Components;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    ListBox1: TListBox;
+    Bluetooth1: TBluetooth;
+    Button2: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+{$R *.LgXhdpiPh.fmx ANDROID}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  DiscoveredDevices: TBluetoothDeviceList;
+  I: Integer;
+begin
+  DiscoveredDevices := TBluetoothManager.Current.CurrentAdapter.PairedDevices;
+  ListBox1.Items.Clear;
+  for I := 0 to DiscoveredDevices.Count - 1 do
+  begin
+    ListBox1.Items.Add(DiscoveredDevices[I].DeviceName);
+  end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  Device: TBluetoothDevice;
+begin
+  if ListBox1.ItemIndex > -1 then
+  begin
+    Device := TBluetoothManager.Current.CurrentAdapter.PairedDevices[ListBox1.ItemIndex];
+    if Device.IsPaired then
+      ShowMessage('Pairing successful')
+    else
+      ShowMessage('Pairing failed');
+  end
+  else
+    ShowMessage('Select a device first');
+end;
+end.

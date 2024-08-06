@@ -1,0 +1,57 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object ListBox1: TListBox
+    Position.X = 48.000000000000000000
+    Position.Y = 136.000000000000000000
+    TabOrder = 2
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 196.000000000000000000
+    Viewport.Height = 196.000000000000000000
+  end
+  object Button1: TButton
+    Position.X = 240.000000000000000000
+    Position.Y = 376.000000000000000000
+    TabOrder = 3
+    Text = 'Button1'
+    OnClick = Button1Click
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Position.X = 296.000000000000000000
+    Position.Y = 128.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 225.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Viewport.Width = 173.000000000000000000
+    Viewport.Height = 221.000000000000000000
+  end
+  object IdUDPClient1: TIdUDPClient
+    Active = True
+    Port = 0
+    ReuseSocket = rsTrue
+    Left = 72
+    Top = 32
+  end
+  object IdUDPServer1: TIdUDPServer
+    Active = True
+    Bindings = <>
+    DefaultPort = 12345
+    ReuseSocket = rsTrue
+    OnUDPRead = IdUDPServer1UDPRead
+    Left = 104
+    Top = 32
+  end
+end

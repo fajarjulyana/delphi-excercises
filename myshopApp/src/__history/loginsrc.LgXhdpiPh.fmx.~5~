@@ -1,0 +1,7 @@
+inherited LoginForm_LgXhdpiPh: TLoginForm_LgXhdpiPh
+  BorderStyle = None
+  Caption = 'My Shop'
+  ClientHeight = 720
+  ClientWidth = 450
+  DesignerMasterStyle = 3
+end

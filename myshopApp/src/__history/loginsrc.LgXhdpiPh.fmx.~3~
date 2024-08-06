@@ -1,0 +1,24 @@
+inherited uLogin: TuLogin
+  BorderStyle = None
+  Caption = 'My Shop'
+  ClientHeight = 720
+  ClientWidth = 450
+  DesignerMasterStyle = 3
+  inherited Layout1: TLayout
+    Align = Client
+    Size.Width = 450.000000000000000000
+    Size.Height = 720.000000000000000000
+    Size.PlatformDefault = False
+    inherited Layout2: TLayout
+      Align = Bottom
+      Position.Y = 670.000000000000000000
+      Size.Width = 450.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inherited Rectangle1: TRectangle
+      Align = Client
+      Size.Width = 450.000000000000000000
+      Size.Height = 670.000000000000000000
+    end
+  end
+end

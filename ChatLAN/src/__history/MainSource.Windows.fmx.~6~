@@ -1,0 +1,51 @@
+inherited Form1_Windows: TForm1_Windows
+  ClientHeight = 539
+  DesignerMasterStyle = 3
+  inherited Panel1: TPanel
+    Size.Width = 473.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    inherited Label1: TLabel
+      Position.X = 144.000000000000000000
+      Position.Y = 8.000000000000000000
+    end
+  end
+  inherited ListBox1: TListBox
+    Position.Y = 48.000000000000000000
+    Size.Width = 241.000000000000000000
+    Size.Height = 329.000000000000000000
+    Size.PlatformDefault = False
+    Viewport.Width = 237.000000000000000000
+    Viewport.Height = 325.000000000000000000
+  end
+  inherited Panel2: TPanel
+    Align = Bottom
+    Position.Y = 448.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 91.000000000000000000
+    Size.PlatformDefault = False
+    inherited Edit1: TEdit
+      Position.X = 8.000000000000000000
+    end
+    inherited Button1: TButton
+      OnClick = Button1Click
+    end
+  end
+  inherited IdTCPClient1: TIdTCPClient
+    Host = '192.168.43.119'
+    Port = 12345
+    Left = 264
+    Top = 280
+  end
+  inherited IdTCPServer1: TIdTCPServer
+    Active = True
+    Bindings = <
+      item
+        IP = '0.0.0.0'
+        Port = 12345
+      end>
+    OnExecute = IdTCPServer1Execute
+    Left = 264
+    Top = 336
+  end
+end

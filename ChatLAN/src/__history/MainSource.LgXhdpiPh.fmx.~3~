@@ -1,0 +1,57 @@
+inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
+  ClientHeight = 695
+  ClientWidth = 450
+  DesignerMasterStyle = 3
+  inherited Panel1: TPanel
+    Align = Top
+    Size.Width = 450.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    inherited Label1: TLabel
+      Position.X = 176.000000000000000000
+      Position.Y = 15.000000000000000000
+      Text = 'Chat LAN'
+    end
+  end
+  inherited ListBox1: TListBox
+    Align = Left
+    Position.Y = 50.000000000000000000
+    Size.Width = 361.000000000000000000
+    Size.Height = 595.000000000000000000
+    Size.PlatformDefault = False
+    Viewport.Width = 361.000000000000000000
+    Viewport.Height = 595.000000000000000000
+  end
+  inherited Panel2: TPanel
+    Align = Bottom
+    Position.Y = 645.000000000000000000
+    Size.Width = 450.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    inherited Edit1: TEdit
+      Position.X = 16.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 281.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inherited Button1: TButton
+      Position.X = 307.000000000000000000
+      Position.Y = 2.000000000000000000
+      Text = 'Kirim'
+      OnClick = Button1Click
+    end
+  end
+  inherited IdTCPClient1: TIdTCPClient
+    Host = '192.168.43.119'
+    Port = 12345
+  end
+  inherited IdTCPServer1: TIdTCPServer
+    Active = True
+    Bindings = <
+      item
+        IP = '127.0.0.1'
+        Port = 12345
+      end>
+    OnExecute = IdTCPServer1Execute
+  end
+end
